@@ -1,0 +1,12 @@
+$kind: collection
+name: Vehicle Service Collection
+description: My spec
+variables:
+  baseUrl: "{{baseUrl}}"
+  createdVehicleId: ""
+auth:
+  - id: 4a69b251-8fd3-4fa6-b77b-4e7f5b3873fd
+    type: apikey
+    name: apikey auth
+    credentials:
+      key: X-API-Key
