@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseUrl}}/vehicles"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Get all vehicles.resources/examples
+order: 2000

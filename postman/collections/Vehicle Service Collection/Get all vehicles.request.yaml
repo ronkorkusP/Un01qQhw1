@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/vehicles"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: pm.test("Status code is 200 OK", () => pm.response.to.have.status(200));
+examples: ./.resources/Get all vehicles.resources/examples
+order: 5000

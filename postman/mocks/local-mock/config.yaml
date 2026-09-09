@@ -1,0 +1,16 @@
+id: 01a08554-287c-75ba-a728-c80f9a328891
+version: 1
+name: Local mock
+slug: vehicle-service-twin
+enableSession: true
+protocol: http
+port: 4500
+autoRestartOnChange: true
+logging:
+  level: verbose
+  showBody: true
+scenarios:
+  - name: default
+    path: ./default.js
+    default: true
+    id: 01a0856e-39f0-761f-9eba-34c1d0aef727

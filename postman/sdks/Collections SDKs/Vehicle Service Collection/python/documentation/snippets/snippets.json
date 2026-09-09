@@ -1,0 +1,31 @@
+{
+  "endpoints": {
+    "/vehicles": {
+      "post": "from vehicle_service_collection_sdk import VehicleServiceCollectionSdk, Environment\nfrom vehicle_service_collection_sdk.models import CreateAVehicleRequest\n\nsdk = VehicleServiceCollectionSdk(\n    api_key=\"YOUR_API_KEY\",\n    base_url=Environment.DEFAULT.value,\n    timeout=10\n)\n\nrequest_body = CreateAVehicleRequest(\n    nick_name=\"The Lisa Marie\",\n    vin=\"4M2DV11W4RDJ53329\",\n    make=\"Mercury\",\n    model=\"Villager\",\n    year=\"1994\",\n    miles=159864\n)\n\nresult = sdk.vehicle_service_collection_sdk.create_a_vehicle(request_body=request_body)\n\nprint(result)\n",
+      "get": "from vehicle_service_collection_sdk import VehicleServiceCollectionSdk, Environment\n\nsdk = VehicleServiceCollectionSdk(\n    api_key=\"YOUR_API_KEY\",\n    base_url=Environment.DEFAULT.value,\n    timeout=10\n)\n\nresult = sdk.vehicle_service_collection_sdk.get_all_vehicles()\n\nprint(result)\n"
+    },
+    "/vehicles/{id}": {
+      "get": "from vehicle_service_collection_sdk import VehicleServiceCollectionSdk, Environment\n\nsdk = VehicleServiceCollectionSdk(\n    api_key=\"YOUR_API_KEY\",\n    base_url=Environment.DEFAULT.value,\n    timeout=10\n)\n\nresult = sdk.vehicle_service_collection_sdk.retrieve_a_vehicle(id_=\"4\")\n\nprint(result)\n",
+      "patch": "from vehicle_service_collection_sdk import VehicleServiceCollectionSdk, Environment\nfrom vehicle_service_collection_sdk.models import CreateAVehicleRequest\n\nsdk = VehicleServiceCollectionSdk(\n    api_key=\"YOUR_API_KEY\",\n    base_url=Environment.DEFAULT.value,\n    timeout=10\n)\n\nrequest_body = CreateAVehicleRequest(\n    nick_name=\"The Lisa Marie\",\n    vin=\"4M2DV11W4RDJ53329\",\n    make=\"Mercury\",\n    model=\"Villager\",\n    year=\"1994\",\n    miles=159864\n)\n\nresult = sdk.vehicle_service_collection_sdk.update_a_collection(\n    request_body=request_body,\n    id_=\"4\"\n)\n\nprint(result)\n",
+      "delete": "from vehicle_service_collection_sdk import VehicleServiceCollectionSdk, Environment\n\nsdk = VehicleServiceCollectionSdk(\n    api_key=\"YOUR_API_KEY\",\n    base_url=Environment.DEFAULT.value,\n    timeout=10\n)\n\nresult = sdk.vehicle_service_collection_sdk.delete_a_vehicle(id_=\"4\")\n\nwith open(\"output-file.ext\", \"w\") as f:\n    f.write(result if isinstance(result, str) else result.decode(errors=\"replace\") if isinstance(result, (bytes, bytearray)) else str(result))\n"
+    }
+  },
+  "methodResponses": {
+    "/vehicles": {
+      "post": "print(result)",
+      "get": "print(result)"
+    },
+    "/vehicles/{id}": {
+      "get": "print(result)",
+      "patch": "print(result)",
+      "delete": "with open(\"output-file.ext\", \"w\") as f:\n    f.write(result if isinstance(result, str) else result.decode(errors=\"replace\") if isinstance(result, (bytes, bytearray)) else str(result))"
+    }
+  },
+  "example": "from vehicle_service_collection_sdk import VehicleServiceCollectionSdk, Environment\n\nsdk = VehicleServiceCollectionSdk(\n    api_key=\"YOUR_API_KEY\",\n    base_url=Environment.DEFAULT.value,\n    timeout=10\n)\n\nresult = sdk.vehicle_service_collection_sdk.get_all_vehicles()\n\nprint(result)\n",
+  "authentication": {
+    "apiKey": {
+      "constructor": "VehicleServiceCollectionSdk(\n    api_key=\"YOUR_API_KEY\",\n    timeout=10\n)",
+      "setter": "sdk.set_api_key(\"YOUR_API_KEY\")"
+    }
+  }
+}

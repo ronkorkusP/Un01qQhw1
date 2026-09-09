@@ -1,0 +1,34 @@
+$kind: http-request
+name: Update a collection
+url: "{{baseUrl}}/vehicles/:id"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: id
+    value: "4"
+    description: ""
+body:
+  type: json
+  content: |-
+    {
+      "nickName": "The Lisa Marie",
+      "vin": "4M2DV11W4RDJ53329",
+      "make": "Mercury",
+      "model": "Villager",
+      "year": "1994",
+      "miles": 159999
+    }
+settings: {}
+scripts:
+  - type: beforeRequest
+    code: |-
+      const id = pm.collectionVariables.get("createdVehicleId");
+      if (id) pm.request.url.variables.substitute({ id: String(id) });
+    language: text/javascript
+  - type: afterResponse
+    code: pm.test("Status code is 200 OK", () => pm.response.to.have.status(200));
+    language: text/javascript
+examples: ./.resources/Update a collection.resources/examples
+order: 3000
